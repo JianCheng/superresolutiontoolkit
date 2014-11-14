@@ -1,5 +1,5 @@
 function [fTV, errList_H] = fTestImageLRTV2D(ylr,rate,f0,para)
-% read a 2D image and produce out a 2D result using surrogate methods.
+% read a 2D image and produce out a 2D result.
 % input: LR image, scale factor, the HR ground truth image
 % output: HR image
 % test the Image Deconvolution using Variational Method

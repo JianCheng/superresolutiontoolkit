@@ -28,11 +28,12 @@ elseif (dim==2)
         end
     end
 elseif (dim==3)
-    if inSize(1)==1 || inSize(2)==1 || isSize(3)==1
+    if inSize(1)==1 || inSize(2)==1 || inSize(3)==1
         error('Logical Error');
     end
-    lengthOut = max(inSize)*rate;
-    outMatrix = zeros(lengthOut);
+    %lengthOut = max(inSize)*rate;
+    lengthOut = inSize*rate;
+    outMatrix = zeros(lengthOut(1),lengthOut(2),lengthOut(3));
     for i = 1:rate
         for j = 1:rate
             for k = 1:rate
