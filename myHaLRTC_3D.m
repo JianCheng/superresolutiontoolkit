@@ -18,7 +18,7 @@ out.errList = zeros(maxIter, 1);
 if ~isempty(T0)
     out.snr = zeros(maxIter, 1);
 end
-% dim = size(T);
+dim = size(g);
 Y = cell(ndims(T), 1);
 M = Y;
 
@@ -38,10 +38,10 @@ for k = 1: maxIter
     
     % update M
     for i = 1:ndims(T)
-        % M{i} = Pro2TraceNorm(X+Y{i}, lambdaRank*alpha(i)/beta);
-        for u = 1:size(X,3)
-            M{i}(:,:,u) = Pro2TraceNorm(X(:,:,k)+Y{i}(:,:,u), lambdaRank*alpha(i)/beta);
-        end
+        site = circshift(dim, [1-i, 1-i]);
+        ZZ = reshape(shiftdim(X+Y{i},i-1), dim(i), []);
+        MM = Pro2TraceNorm(ZZ, lambdaRank*alpha(i)/beta);
+        M{i} = shiftdim(reshape(MM, site), -i+1+3);
     end
     
     % update Y

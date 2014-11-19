@@ -20,7 +20,8 @@ elseif (dim==2)
     if inSize(1)==1 || inSize(2)==1
         error('Logical Error');
     end
-    lengthOut = max(inSize)*rate;
+%     lengthOut = max(inSize)*rate;
+    lengthOut = inSize*rate;
     outMatrix = zeros(lengthOut);
     for i = 1:rate
         for j = 1:rate

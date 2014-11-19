@@ -35,6 +35,7 @@ for k = 1: maxIter
     lastX = X;
 
    X = myTV(T, h,rate, M, Y,lambdaTV,beta,dt);
+   % gTV is not the result from TV method
     if k == 1; gTV = X; end;
     
     % update M

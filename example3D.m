@@ -40,11 +40,11 @@ figure(3);imshow(f0(:,:,slice),[]);
 
 % input is original and output is larger
 %% image recover
-para.niter = 6;
-para.dt = 0.1;
-
-[fTV, errList_H] = fTestImageLRTV3D(ylr,rate,f0,para);
-figure(4);imshow(fTV(:,:,slice),[]);
+% para.niter = 6;
+% para.dt = 0.1;
+% 
+% [fTV, errList_H] = fTestImageLRTV3D(ylr,rate,f0,para);
+% figure(4);imshow(fTV(:,:,slice),[]);
 
 % I tested the above method, and get below results
 % speed is quite slow, 
@@ -63,6 +63,9 @@ figure(4);imshow(fTV(:,:,slice),[]);
 %  snr= 9.895984
 
 %% image recover test on fewer slices
+para.niter = 6;
+para.dt = 0.1;
+
 f0 = neoImg(:,:,101:106);
 y0 = gauss3filter(f0,s);
 ylr = my_downsample(y0,rate);
@@ -83,3 +86,17 @@ ylr = my_downsample(y0,rate);
 %  snr= 24.107353
 % HaLRTC: iterations = 6   difference=0.193581
 %  snr= 18.961545
+
+% after revision on update of M
+% HaLRTC: iterations = 1   difference=0.657885
+%  snr= 12.218735
+% HaLRTC: iterations = 2   difference=0.505030
+%  snr= 21.299089
+% HaLRTC: iterations = 3   difference=0.125684
+%  snr= 24.434797
+% HaLRTC: iterations = 4   difference=0.037805
+%  snr= 25.189988
+% HaLRTC: iterations = 5   difference=0.016834
+%  snr= 25.504802
+% HaLRTC: iterations = 6   difference=0.010369
+%  snr= 25.687932
