@@ -41,7 +41,7 @@ for k = 1: maxIter
         site = circshift(dim, [1-i, 1-i]);
         ZZ = reshape(shiftdim(X+Y{i},i-1), dim(i), []);
         MM = Pro2TraceNorm(ZZ, lambdaRank*alpha(i)/beta);
-        M{i} = shiftdim(reshape(MM, site), -i+1+3);
+        M{i} = shiftdim(reshape(MM, site), -i+1+ndims(T));
     end
     
     % update Y
